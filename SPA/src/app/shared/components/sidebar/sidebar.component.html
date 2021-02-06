@@ -1,0 +1,12 @@
+<div>
+  <img src="https://dummyimage.com/190x80/fff/aaa">
+  <div *ngFor="let item of navItems" class="nav_item" (click)="close()"
+       [routerLink]="item.path" routerLinkActive="nav_item_active_link">
+      <mat-icon>{{item.icon}}</mat-icon>
+      <span class="nav_item_label">{{item.label}}</span>
+  </div>
+  <div class="nav_item" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    <span class="nav_item_label">Logout</span>
+  </div>
+</div>

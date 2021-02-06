@@ -1,0 +1,12 @@
+.mat-toolbar{
+  height: 4em;
+  display: flex;
+  background: white;
+  justify-content: space-around;
+
+  a{
+    img{
+      cursor: pointer;
+    }
+  }
+}

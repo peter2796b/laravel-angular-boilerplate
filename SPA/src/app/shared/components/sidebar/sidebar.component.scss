@@ -1,0 +1,26 @@
+.nav_item {
+  align-items: center;
+  display: flex;
+  margin: auto;
+  padding: 1em 2em;
+  cursor: pointer;
+
+  &:hover{
+    background: #e0e0e0;
+  }
+
+  &_label {
+    margin-left: 20px;
+  }
+
+  &_active_link{
+    background: #008776;
+    color: white;
+
+    &:hover{
+      background: #38837b;
+    }
+  }
+}
+
+

@@ -1,0 +1,43 @@
+version: "3.7"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile-local
+    image: cr-docker
+    container_name: cr-app
+    restart: unless-stopped
+    working_dir: /usr/share/nginx/html
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/usr/share/nginx/html
+    networks:
+      - cr
+
+  db:
+    image: mysql:5.7
+    container_name: cr-db
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: cr
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_USER: root
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - cr-db-data:/var/lib/mysql:rw
+    networks:
+      - cr
+
+networks:
+  cr:
+    driver: bridge
+
+#Volumes
+volumes:
+  cr-db-data:
+    driver: local
